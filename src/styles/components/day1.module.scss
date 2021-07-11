@@ -1,0 +1,67 @@
+.center {
+  background: linear-gradient(0.65turn, #4ec4c9, #433aa0);
+
+  .hundred {
+    margin-bottom: 5.4rem;
+    .one {
+      position: absolute;
+      left: 100px;
+      background-color: #fff;
+      height: 100px;
+      width: 25px;
+      border-radius: 4px;
+      box-shadow: 0px 0px 5px 3px #00000014;
+      z-index: 4;
+    }
+
+    .oneTail {
+      position: absolute;
+      left: 82px;
+      right: 0;
+      z-index: 3;
+      transform: rotate(50deg);
+      background-color: #fff;
+      height: 40px;
+      width: 20px;
+      border-radius: 4px;
+      box-shadow: 0px 0px 3px 3px #00000014;
+    }
+
+    .zero {
+      position: absolute;
+      left: 120px;
+      z-index: 2;
+      height: 100px;
+      width: 100px;
+      background-color: transparent;
+      border: 25px solid white;
+      border-radius: 50%;
+      box-shadow: 0px 0px 3px 3px #00000014;
+
+      &.zero:last-of-type {
+        left: 205px;
+        z-index: 1;
+      }
+    }
+  }
+
+  span,
+  p {
+    font-family: "Courier New", "Courier", sans-serif;
+  }
+
+  span {
+    color: #fff;
+    font-size: 5.8rem;
+    font-weight: bold;
+    height: 80px;
+  }
+
+  p {
+    font-weight: bold;
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0px 0px 3px #00000014;
+  }
+}

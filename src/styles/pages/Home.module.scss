@@ -1,0 +1,49 @@
+.mainContainer {
+  padding: 1rem;
+  background-color: #f5f4f2;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 1rem;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    border-radius: 6px;
+    position: relative;
+  }
+
+  & > div:nth-child(1) {
+    animation: WorkingOn 1s infinite linear;
+    border: 3px double;
+  }
+}
+
+@keyframes WorkingOn {
+  0% {
+    border-color: red;
+  }
+  50% {
+    border-color: yellow;
+  }
+  100% {
+    border-color: blue;
+  }
+}
+
+@media (max-width: 1250px) {
+  .mainContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .mainContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

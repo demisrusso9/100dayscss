@@ -1,0 +1,78 @@
+.center {
+  background: #3faf82;
+
+  .animation {
+    position: relative;
+
+    input {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transform: scale(6);
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    input:checked + label {
+      .bar:nth-child(1) {
+        animation: moveDown 0.5s forwards, rotateRight 0.5s forwards 0.5s;
+        z-index: 5;
+      }
+
+      .bar:nth-child(2) {
+        animation: lowerSize 0.5s forwards;
+      }
+
+      .bar:nth-child(3) {
+        animation: moveUp 0.5s forwards, rotateLeft 0.4s forwards 0.5s;
+      }
+    }
+
+    .bar {
+      background-color: #fff;
+      height: 8px;
+      width: 80px;
+      border-radius: 30px;
+      box-shadow: -1px 0px 10px -3px black;
+
+      &.bar + .bar {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+@keyframes rotateRight {
+  100% {
+    transform: translateY(25px) rotate(40deg);
+  }
+}
+
+@keyframes rotateLeft {
+  100% {
+    transform: translateY(-20px) rotate(-220deg);
+  }
+}
+
+@keyframes moveDown {
+  100% {
+    transform: translateY(24px);
+  }
+}
+
+@keyframes moveUp {
+  100% {
+    transform: translateY(-24px);
+  }
+}
+
+@keyframes lowerSize {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
