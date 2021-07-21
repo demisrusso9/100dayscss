@@ -1,0 +1,278 @@
+$background: #42a7a1;
+$header: #f1ba64;
+$white: #ffffff;
+$views: #fa7373;
+$purchases: #7ba2ff;
+$semi-white: #f8f4f6;
+$text: #606060;
+$line-color: #f2f2f2;
+$week-text: #acacac;
+
+.center {
+  background: $background;
+
+  .box {
+    height: 230px;
+    width: 300px;
+    font-family: sans-serif;
+    border-radius: 5px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+    background: $white;
+
+    header {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      background: $header;
+      height: 65px;
+      border-radius: 5px 5px 0 0;
+      color: $white;
+
+      .top,
+      .bottom {
+        display: flex;
+        justify-content: space-between;
+
+        & > span {
+          font-size: 0.75rem;
+          color: $semi-white;
+        }
+      }
+
+      .top h1 {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .bottom span:last-child {
+        color: $white;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+    }
+
+    .legend {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0.8rem 0;
+
+      span {
+        display: flex;
+        align-items: baseline;
+        font-size: 0.65rem;
+        color: $text;
+
+        &::before {
+          content: "";
+          width: 11.5px;
+          height: 3.5px;
+          border-radius: 5px;
+          margin-right: 0.55rem;
+        }
+      }
+
+      span:first-child::before {
+        background: $views;
+      }
+
+      span:last-child {
+        margin: 0 0.6rem 0 1rem;
+
+        &::before {
+          background: $purchases;
+        }
+      }
+    }
+
+    .chart {
+      position: relative;
+      margin: 0 0.6rem;
+
+      hr {
+        position: absolute;
+        width: 100%;
+        border: none;
+        border-bottom: 1.5px solid $line-color;
+
+        &:nth-child(1) {
+          top: 0px;
+        }
+        &:nth-child(2) {
+          top: 45px;
+        }
+        &:nth-child(3) {
+          top: 90px;
+        }
+      }
+
+      .viewLine > {
+        p {
+          position: absolute;
+          right: 50px;
+          top: 55px;
+          content: "";
+          display: inline;
+          height: 6px;
+          width: 6px;
+          border-radius: 50%;
+          background: $views;
+
+          &::after {
+            position: relative;
+            top: -45px;
+            right: -40px;
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            background: $views;
+            display: inline-block;
+            content: "";
+          }
+        }
+
+        div {
+          position: absolute;
+
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          background: $views;
+          height: 2px;
+
+          &:nth-child(1) {
+            width: 55px;
+            bottom: -35px;
+            left: 4px;
+            transform: rotate(-40deg);
+          }
+          &:nth-child(2) {
+            width: 50px;
+            left: 50px;
+            top: 20px;
+            transform: rotate(13deg);
+          }
+          &:nth-child(3) {
+            width: 50px;
+            left: 95px;
+            top: 20px;
+            transform: rotate(-15deg);
+          }
+          &:nth-child(4) {
+            width: 60px;
+            left: 135px;
+            top: 30px;
+            transform: rotate(36deg);
+          }
+          &:nth-child(5) {
+            width: 35px;
+            left: 185px;
+            top: 51px;
+            transform: rotate(15deg);
+          }
+
+          &::after {
+            content: "";
+            display: inline-block;
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            background: $views;
+          }
+        }
+      }
+
+      .purchaseLine {
+        p {
+          position: absolute;
+          right: 50px;
+          top: 80px;
+          content: "";
+          display: inline;
+          height: 6px;
+          width: 6px;
+          border-radius: 50%;
+          background: $purchases;
+
+          &::after {
+            position: relative;
+            top: -20px;
+            right: -40px;
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            background: $purchases;
+            display: inline-block;
+            content: "";
+          }
+        }
+
+        div {
+          position: absolute;
+
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          background: $purchases;
+          height: 2px;
+
+          &:nth-child(1) {
+            width: 45px;
+            top: 65px;
+            left: 15px;
+            transform: rotate(-10deg);
+          }
+          &:nth-child(2) {
+            width: 46px;
+            top: 68px;
+            left: 57px;
+            transform: rotate(20deg);
+          }
+          &:nth-child(3) {
+            width: 50px;
+            top: 71px;
+            left: 100px;
+            transform: rotate(-15deg);
+          }
+          &:nth-child(4) {
+            width: 45px;
+            top: 69px;
+            left: 145px;
+            transform: rotate(10deg);
+          }
+          &:nth-child(5) {
+            width: 30px;
+            top: 77px;
+            left: 185px;
+            transform: rotate(15deg);
+          }
+
+          &::after {
+            content: "";
+            display: inline-block;
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            background: $purchases;
+          }
+        }
+      }
+    }
+
+    .week {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0.6rem;
+      font-size: 10px;
+      color: $week-text;
+
+      span {
+        position: relative;
+        top: 100px;
+      }
+    }
+  }
+}

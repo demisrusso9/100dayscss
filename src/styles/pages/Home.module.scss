@@ -3,7 +3,7 @@
   background-color: #f5f4f2;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   gap: 1rem;
 
@@ -20,19 +20,25 @@
 
   & > div:nth-child(1) {
     animation: WorkingOn 1s infinite linear;
-    border: 3px double;
+    border: 3px solid;
   }
 }
 
 @keyframes WorkingOn {
   0% {
-    border-color: red;
+    border-color: lightblue;
   }
   50% {
     border-color: yellow;
   }
   100% {
-    border-color: blue;
+    border-color: lightgreen;
+  }
+}
+
+@media (max-width: 1700px) {
+  .mainContainer {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -42,7 +48,7 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 840px) {
   .mainContainer {
     grid-template-columns: repeat(1, 1fr);
   }

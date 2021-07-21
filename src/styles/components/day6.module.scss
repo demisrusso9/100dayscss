@@ -1,0 +1,139 @@
+$primary: #786450;
+$secondary: #f5e8df;
+$secondary-hover: #e1cfc2;
+
+.center {
+  background: linear-gradient(0.2turn, #eebd6c, #d38c56);
+
+  .box {
+    background: white;
+    height: 300px;
+    width: 320px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 10px 10px 15px -5px rgba(0, 0, 0, 0.4);
+
+    section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      flex: 1;
+
+      figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: "Open Sans";
+
+        .image {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .circle {
+            position: absolute;
+            border: 1px solid $primary;
+            height: 90px;
+            width: 90px;
+            border-right: 1px solid white;
+            transition: ease-in-out 1.5s;
+
+            &:nth-child(2) {
+              height: 82px;
+              width: 82px;
+              border: 1px solid $primary;
+              border-left: 1px solid white;
+            }
+          }
+
+          &:hover {
+            .circle {
+              transform: rotate(-360deg);
+            }
+
+            .circle:last-child {
+              transform: rotate(360deg);
+            }
+          }
+        }
+
+        // NextJS <Image /> Tag, It has a DIV
+        div {
+          border-radius: 50px;
+        }
+
+        figcaption {
+          color: $primary;
+          margin-top: 0.8rem;
+          font-weight: bold;
+          line-height: 18px;
+        }
+
+        small {
+          color: $primary;
+          font-weight: 100;
+          font-size: 0.675rem;
+          margin-bottom: 30px;
+          opacity: 0.9;
+        }
+      }
+
+      button {
+        cursor: pointer;
+        height: 30px;
+        width: 120px;
+        border: 1px solid $primary;
+        border-radius: 20px;
+        font: bold 0.8rem "Open sans";
+        background: transparent;
+        color: $primary;
+        margin-bottom: 0.8rem;
+        transition: background 0.6s;
+
+        &:hover {
+          background: $primary;
+          color: white;
+        }
+      }
+    }
+
+    aside {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      height: 100%;
+      gap: 2px;
+
+      & > div {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        width: 120px;
+        background: $secondary;
+        transition: background 0.6s;
+        font-family: "Open sans";
+
+        span {
+          font-weight: bold;
+          color: $primary;
+
+          &:last-child {
+            font-weight: 100;
+            font-size: 0.675rem;
+          }
+        }
+
+        &:hover {
+          background: $secondary-hover;
+        }
+      }
+    }
+  }
+}
