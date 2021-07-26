@@ -1,2 +1,230 @@
+$primary: #5f98cd;
+$background: #264057;
+$icon-background: #b2daff;
+
+$sidebar: #43627d;
+$sidebar-hover: #385269;
+$sidebar-color-text: #93b2cd;
+$sidebar-color-text-hover: #fff;
+$main-text-color: #555;
+$main-text-hover: #689ed0;
+$line-color: #ebebeb;
+
+@mixin flexContent($content) {
+  display: flex;
+  justify-content: $content;
+  align-items: center;
+}
+
+// Special classes
+.activeMenu {
+  transform: translateX(150px);
+  transition: 0.4s;
+}
+
 .center {
+  background: $background;
+
+  .sidebar {
+    position: absolute;
+    top: 60px;
+    background: white;
+    width: 180px;
+    height: 260px;
+    border-radius: 5px;
+    transform: translateX(-50px);
+
+    ul {
+      border-radius: 5px;
+      padding: 0.6rem 0;
+      list-style: none;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: $sidebar;
+
+      li {
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        font-family: "Open Sans", sans-serif;
+        font-size: 0.9rem;
+        color: $sidebar-color-text;
+        transition: 0.4s;
+        padding: 1rem 1.3rem;
+
+        & > div {
+          outline: 1px solid $sidebar-color-text;
+          width: 6px;
+          height: 8px;
+          margin-right: 10px;
+        }
+
+        &:hover {
+          background: $sidebar-hover;
+          color: $sidebar-color-text-hover;
+
+          div {
+            outline: 1px solid $sidebar-color-text-hover;
+          }
+        }
+      }
+    }
+  }
+
+  .box {
+    background: white;
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+    z-index: 10;
+    transition: 0.4s;
+
+    header {
+      @include flexContent(space-between);
+      position: relative;
+
+      padding: 0 1.4rem;
+      background: $primary;
+      height: 60px;
+      border-radius: 5px 5px 0 0;
+
+      .iconClick {
+        display: none;
+      }
+
+      .icon {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 1;
+
+        .circle {
+          position: absolute;
+          top: -2px;
+          right: 0;
+          width: 8px;
+          height: 8px;
+          background: $icon-background;
+          border-radius: 50%;
+          transition: 0.4s;
+        }
+
+        .bar {
+          height: 3px;
+          width: 30px;
+          background: $icon-background;
+          border-radius: 30px;
+          transition: 0.4s;
+        }
+
+        .bar + .bar {
+          margin-top: 10px;
+        }
+
+        &:hover {
+          .circle,
+          .bar {
+            color: white;
+            background: white;
+          }
+        }
+      }
+
+      h1 {
+        font: 600 1rem "Open Sans", sans-serif;
+        color: white;
+      }
+
+      .search {
+        display: flex;
+        position: relative;
+
+        .enableSearch {
+          display: none;
+        }
+
+        label svg {
+          cursor: pointer;
+          color: $icon-background;
+          display: flex;
+          align-items: center;
+        }
+
+        .searchBar {
+          position: absolute;
+          top: 50%;
+          right: -70px;
+          transform: translate(-50%, -50%);
+          height: 35px;
+          width: 220px;
+          border: 0;
+          border-radius: 30px;
+          padding: 0 1.2rem;
+          opacity: 0;
+          outline: 0;
+          transition: 0.5s;
+        }
+
+        .enableSearch:checked + label .searchBar {
+          opacity: 1;
+          z-index: 2;
+        }
+      }
+    }
+
+    .notifications {
+      position: relative;
+      padding: 1rem 0.8rem 0rem 3rem;
+
+      .line {
+        position: absolute;
+        top: 0px;
+        left: 30px;
+        width: 3px;
+        height: 240px;
+        background: $line-color;
+      }
+
+      .comment {
+        cursor: pointer;
+        font-family: "Open sans", sans-serif;
+        color: $main-text-color;
+
+        small {
+          position: relative;
+          font-size: 0.7rem;
+
+          &::before {
+            position: absolute;
+            left: -21.5px;
+            top: 3px;
+            content: "";
+            display: inline;
+            width: 5px;
+            height: 5px;
+            border-radius: 30px;
+            border: 2.5px solid $primary;
+          }
+        }
+
+        strong {
+          font-size: 0.9rem;
+        }
+
+        &:hover {
+          color: $main-text-hover;
+        }
+      }
+
+      .comment + .comment {
+        margin-top: 10px;
+      }
+    }
+  }
 }
